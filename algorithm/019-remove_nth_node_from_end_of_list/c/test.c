@@ -37,9 +37,10 @@ int main(int argc, char* argv[]) {
                   list(4, 1, 2, 3, 5));
   
   // 删除末尾测试
-  assertListEqual(removeNthFromEnd(list(1, 1, 2), 1), list(1, 1));
+  assertListEqual(removeNthFromEnd(list(3, 1, 2, 3), 1), list(2, 1, 2));
 
   // 删除头测试
+  assertListEqual(removeNthFromEnd(list(1, 1), 1), list(0));
   assertListEqual(removeNthFromEnd(list(2, 1, 2), 2), list(1, 2));
   return 0;
 }
