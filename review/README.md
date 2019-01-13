@@ -18,6 +18,8 @@
 [017 电话数组键盘的字母组合](../algorithm/017-letter_combinations_of_a_phone_number/readme.md)  
 [018 4数之和](../algorithm/018-4sum/readme.md)  
 [019 从链表中移除倒数第N个节点](../algorithm/019-remove_nth_node_from_end_of_list/readme.md)  
+[20 括号匹配](../algorithm/020-valid_parentheses/readme.md)  
+[21 合并两个已排序的链表](../algorithm/021-merge_two_sorted_lists/readme.md)  
 
 ## 【译】每个程序员都应该知道的97件事
 [1 谨慎行动](./97ThingsEveryProgrammerShouldKnow/01-ActWithPrudence.md)  
@@ -34,3 +36,5 @@
 [12 代码即设计](./97ThingsEveryProgrammerShouldKnow/12-CodeIsDesign.md)  
 [13 代码布局很重要](./97ThingsEveryProgrammerShouldKnow/13-CodeLayoutMatters.md)  
 [14 代码审查](./97ThingsEveryProgrammerShouldKnow/14-CodeReviews.md)  
+[15 推理代码](./97ThingsEveryProgrammerShouldKnow/15-CodingWithReason.md)  
+[16 注释的注释](./97ThingsEveryProgrammerShouldKnow/16-ACommentOnComments.md)  
