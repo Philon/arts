@@ -9,17 +9,18 @@ char** generateParenthesis(int n, int* returnSize) {
 
   if (n == 0) {
     parentheses[0] = (char*)calloc(1, sizeof(char));
-    parentheses[0][0] = '\0';
-    count = 1;
+    *returnSize = 1;
     return parentheses;
   }
 
   for (int i = 0; i < n; i++) {
     int leftCount = 0;
     char** lefts = generateParenthesis(i, &leftCount);
+
     for (int j = 0; j < leftCount; j++) {
       int rightCount = 0;
       char** rights = generateParenthesis(n - 1 - i, &rightCount);
+      
       for (int k = 0; k < rightCount; k++) {
         char* p = (char*)calloc(length, sizeof(char));
         parentheses[count++] = p;
@@ -27,9 +28,8 @@ char** generateParenthesis(int n, int* returnSize) {
         char* r = rights[k];
         *p++ = '(';
         while (*l) *p++ = *l++;
-        while (*r) *p++ = *r++;
         *p++ = ')';
-        *p = '\0';
+        while (*r) *p++ = *r++;
 
         free(rights[k]);
       }
