@@ -1,0 +1,1 @@
+[19 便利不是一种能力](./97ThingsEveryProgrammerShouldKnow/19-ConvenienceIsNotAn-ility.md)
