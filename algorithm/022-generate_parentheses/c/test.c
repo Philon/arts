@@ -1,7 +1,7 @@
 #include "solution.h"
 #include <assert.h>
 #include <stdarg.h>
-#include <stdio.h>
+
 void assertParentheses(int n, ...) {
   int count = 0;
   char** parentheses = generateParenthesis(n, &count);
@@ -33,6 +33,5 @@ void assertParentheses(int n, ...) {
 int main(int argc, char* argv[])
 {
   assertParentheses(3, "((()))", "()()()", "(())()", "()(())", "(()())");
-  assertParentheses(0);
   return 0;
 }
