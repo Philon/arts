@@ -28,10 +28,14 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
 }
 
 struct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {
-  struct ListNode* result = *lists;
-  for (int i = 1; i < listsSize; i++) {
-    result = mergeTwoLists(result, lists[i]);
+  int interval = 1;
+  while (interval < listsSize) {
+    for (int i = 0; i < listsSize; i += interval * 2) {
+      struct ListNode* next = (i+interval) < listsSize ? lists[i+interval] : NULL;
+      lists[i] = mergeTwoLists(lists[i], next);
+    }
+    interval *= 2;
   }
-
-  return result;
+  
+  return listsSize ? lists[0] : NULL;
 }
