@@ -65,3 +65,134 @@ struct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {
 ```
 - 时间复杂度：O(n * listsSize)，n是链表数组当中最长的那根
 - 空间复杂度：O(1)
+
+---
+以下翻译自[官方solution](https://leetcode.com/problems/merge-k-sorted-lists/solution/)
+
+## 方案一、粗暴法
+
+### 原理及算法
+
+- 遍历所有的链表，然后把每个链表的节点存到一个数组中
+- 根据数组中每个元素的node->val进行排序
+- 创建一个新链表，把刚才排序好的数组放入其中
+
+关于排序，你可以通过[这里](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/sorting.html)获取更多相关算法的信息。
+
+以下是Python的实现：
+```python
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        self.nodes = []
+        head = point = ListNode(0)
+        for l in lists:
+            while l:
+                self.nodes.append(l.val)
+                l = l.next
+        for x in sorted(self.nodes):
+            point.next = ListNode(x)
+            point = point.next
+        return head.next
+```
+- 时间复杂度：O(N*logN)，N表示(所有链表)节点的数量
+- 空间复杂度：O(N)
+
+## 方案二、一对一比较
+
+### 算法
+
+- 比较数组中的每个节点(头部节点)，然后取出最小那一个，(头部移至下一个节点)
+- 把选中的节点扩展到一个链表尾部
+
+### 复杂度分析
+
+- 时间复杂度：O(kN)，k是链表数量，N是所有节点数量
+- 空间复杂度：O(N)，创建新链表的情况下，如果仅仅合并到其中一个链表，则是O(1)
+
+## 方案三、通过优先级队列优化方案二
+
+### 算法
+
+几乎和上面的方案一样，只是通过优先级队列的方式优化了一下。具体可以通过[这里](https://en.wikipedia.org/wiki/Priority_queue)了解优先级队列算法信息。
+
+以下是Python的实现：
+```python
+from Queue import PriorityQueue
+
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        head = point = ListNode(0)
+        q = PriorityQueue()
+        for l in lists:
+            if l:
+                q.put((l.val, l))
+        while not q.empty():
+            val, node = q.get()
+            point.next = ListNode(val)
+            point = point.next
+            node = node.next
+            if node:
+                q.put((node.val, node))
+        return head.next
+```
+
+## 方案四、一一合并
+
+把合并k个链表转换成合并(k-1)次2个链表的问题，然后看看[merge 2 list](https://leetcode.com/problems/merge-two-sorted-lists/description/)这道题就明白了。
+
+## 方案五、两两合并
+
+### 原理及算法
+
+这个方案相比于上边那种要改善太多了。我们没必要把所有节点都重复遍历那么多遍：
+- 将k个链表分成对，然后合并每一对
+- 当成对合并后，k个链表合并为k/2个，并且长度为2N/k，以此类推，k/4，k/8...
+- 重复以上操作直至我们最终剩下一个链表
+
+这样，我们总在遍历N个节点的链表对并将其合并，需要重复操作log2k次。
+
+![](https://leetcode.com/problems/merge-k-sorted-lists/Figures/23/23_divide_and_conquer_new.png)
+
+以下是python实现：
+```python
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        amount = len(lists)
+        interval = 1
+        while interval < amount:
+            for i in range(0, amount - interval, interval * 2):
+                lists[i] = self.merge2Lists(lists[i], lists[i + interval])
+            interval *= 2
+        return lists[0] if amount > 0 else lists
+
+    def merge2Lists(self, l1, l2):
+        head = point = ListNode(0)
+        while l1 and l2:
+            if l1.val <= l2.val:
+                point.next = l1
+                l1 = l1.next
+            else:
+                point.next = l2
+                l2 = l1
+                l1 = point.next.next
+            point = point.next
+        if not l1:
+            point.next=l2
+        else:
+            point.next=l1
+        return head.next
+```
+- 时间复杂度：O(N * log2k)，k是链表数量，N是每次合并后的节点数
+- 空间复杂度：O(1)
