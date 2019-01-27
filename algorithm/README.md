@@ -24,6 +24,6 @@
 |020| [Valid Parentheses](./020-valid_parentheses)                                  | 100%  |    easy    |
 |021| [Merge Two Sorted Lists](./021-merge_two_sorted_lists)                        | 100%  |    easy    |
 |022| [Generate Parentheses](./022-generate_parentheses)                            | 100%  |   medium   |
-|023| [Merge K Sorted Lists](./023-merge_k_sorted_lists)                            | 100%  |   medium   |
-|024| [Swap Nodes in Pairs](./024-swap_nodes_in_pairs)                            | 100%  |   medium   |
-|025| [Reverse Nodes in K-Group](./025-reverse_nodes_in_k-group)                            | 100%  |   medium   |
+|023| [Merge K Sorted Lists](./023-merge_k_sorted_lists)                            | 100%  |    hard    |
+|024| [Swap Nodes in Pairs](./024-swap_nodes_in_pairs)                              | 100%  |   medium   |
+|025| [Reverse Nodes in K-Group](./025-reverse_nodes_in_k-group)                    | 100%  |    hard    |
