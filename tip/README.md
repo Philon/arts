@@ -1,5 +1,7 @@
 ## 《GO语言实战》学习笔记
+
 [第一章](./GoInAction/chapter1.md)  
+[第二章 RSS阅读器](./GoInAction/chapter2/readme.md)  
 
 ## GO语言学习笔记
 [1 hello GO](./go/01-hello.md)  
@@ -28,4 +30,3 @@
 
 ## 其他
 [正则表达式学习总结 更新中...](./common/RegularExpression.md)
-

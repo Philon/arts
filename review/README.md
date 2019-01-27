@@ -17,3 +17,5 @@
 [16 注释的注释](./97ThingsEveryProgrammerShouldKnow/16-ACommentOnComments.md)  
 [17 只有在代码表达不清时才注释](./97ThingsEveryProgrammerShouldKnow/17-CommentOnlyWhatTheCodeCannotSay.md)  
 [18 持续学习](./97ThingsEveryProgrammerShouldKnow/18-ContinuousLearn.md)  
+[19 便利不是一种能力](./97ThingsEveryProgrammerShouldKnow/19-ConvenienceIsNotAn-ility.md)  
+[20 提前并经常部署](./97ThingsEveryProgrammerShouldKnow/20-DeployEarlyAndOften.md)  
