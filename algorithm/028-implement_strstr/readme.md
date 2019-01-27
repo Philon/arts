@@ -1,0 +1,1 @@
+# [实现strStr()](https://leetcode.com/problems/implement-strstr/)
