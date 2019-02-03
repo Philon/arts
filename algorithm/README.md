@@ -27,3 +27,6 @@
 |023| [Merge K Sorted Lists](./023-merge_k_sorted_lists)                            | 100%  |    hard    |
 |024| [Swap Nodes in Pairs](./024-swap_nodes_in_pairs)                              | 100%  |   medium   |
 |025| [Reverse Nodes in K-Group](./025-reverse_nodes_in_k-group)                    | 100%  |    hard    |
+|026| [Remove Duplicates From Sorted Array](./026-remove_duplicates_from-sorted_array)| 100%  |    easy    |
+|027| [Remove Element](./027-remove_element)                                        | 100%  |    easy    |
+|028| [Implement strStr](./028-implement_strstr)                                    | 100%  |    easy    |
