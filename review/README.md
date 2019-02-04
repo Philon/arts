@@ -1,1 +1,1 @@
-[24 不要惧怕打断事情](./97ThingsEveryProgrammerShouldKnow/24-DontBeAfraidToBreakThings.md)  
+[24 不要惧怕打破事情](./97ThingsEveryProgrammerShouldKnow/24-DontBeAfraidToBreakThings.md)  
