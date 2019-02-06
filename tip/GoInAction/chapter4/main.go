@@ -41,11 +41,10 @@ func PointArray() {
 }
 
 func main() {
-	array := [4][2]int{{1, 2}, {3, 4}, {5, 6}, {7, 8}}
-	var arr2 [4][2]int
 
-	arr2 = array
-	array[0][0] = 77
-	fmt.Printf("arr2: %v\n", arr2)
-	PointArray()
+	ArrayCreate()
+	ArrayAccess()
+	ArrayClone()
+	SliceCreate()
+	SliceClone()
 }
