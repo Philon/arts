@@ -21,4 +21,7 @@
 [20 提前并经常部署](./97ThingsEveryProgrammerShouldKnow/20-DeployEarlyAndOften.md)  
 [21 辨别来自技术中的业务异常](./97ThingsEveryProgrammerShouldKnow/21-DistinguishBusinessExceptiosnFromTechnical.md)  
 [22 做大量刻意练习](./97ThingsEveryProgrammerShouldKnow/22-DoLotsOfDeliberatePractice.md)  
-[23 领域专用语言](./97ThingsEveryProgrammerShouldKnow/23-DomainSpecificLanguages.md) 
+[23 领域专用语言](./97ThingsEveryProgrammerShouldKnow/23-DomainSpecificLanguages.md)  
+[24 不要惧怕打破事情](./97ThingsEveryProgrammerShouldKnow/24-DontBeAfraidToBreakThings.md)  
+[25 不要恶搞你的测试数据](./97ThingsEveryProgrammerShouldKnow/25-DontBeCuteWithYourTestData.md)  
+[26 不要忽略错误](./97ThingsEveryProgrammerShouldKnow/26-DontIgnoreThatError.md)  

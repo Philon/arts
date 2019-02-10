@@ -30,3 +30,4 @@
 |026| [Remove Duplicates From Sorted Array](./026-remove_duplicates_from-sorted_array)| 100%  |    easy    |
 |027| [Remove Element](./027-remove_element)                                        | 100%  |    easy    |
 |028| [Implement strStr](./028-implement_strstr)                                    | 100%  |    easy    |
+|029| [Divide Two Integers](./029-divide_two_integers)                              | 100%  |   medium   |
