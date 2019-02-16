@@ -1,0 +1,1 @@
+[27 不要只是学语言，要理解它的文化](./97ThingsEveryProgrammerShouldKnow/27-DontJustLearnTheLanguages-UnderstandItsCulture.md)  
