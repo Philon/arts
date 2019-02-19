@@ -3,8 +3,8 @@
 
 int main(int argc, char* argv[])
 {
-  char* s = "barfoofoobarthefoobarman";
-  char* words[] = {"bar","foo","the"};
+  char* s = "wordgoodgoodgoodbestword";
+  char* words[] = {"word","good","best","good"};
   int count = 0;
   int* result = findSubstring(s, words, 3, &count);
   int expect[] = {6, 9, 12};
