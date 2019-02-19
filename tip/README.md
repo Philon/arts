@@ -4,6 +4,7 @@
 [第二章 RSS阅读器](./GoInAction/chapter2/readme.md)  
 [第三章 打包和工具链](./GoInAction/chapter3/readme.md)  
 [第四章 数组、切片和映射](./GoInAction/chapter4/readme.md)  
+[第四章 类型系统](./GoInAction/chapter5/readme.md)  
 
 ## GO语言学习笔记
 [1 hello GO](./go/01-hello.md)  
