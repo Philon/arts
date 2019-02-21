@@ -1,0 +1,1 @@
+[28 不要僵直钉死你的程序](./97ThingsEveryProgrammerShouldKnow/28-DontNailYourProgramIntoTehUprightPosition.md)  
