@@ -32,3 +32,4 @@
 |028| [Implement strStr](./028-implement_strstr)                                    | 100%  |    easy    |
 |029| [Divide Two Integers](./029-divide_two_integers)                              | 100%  |   medium   |
 |030| [Substring with Concatenation of All Words](./030-substring_with_concatenation_of_all_words) | ❌ |   hard   |
+|031| [Next Permutation](./030-next_permutation)                                    | 18.6% |   medium   |

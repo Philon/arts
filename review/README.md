@@ -26,3 +26,4 @@
 [25 不要恶搞你的测试数据](./97ThingsEveryProgrammerShouldKnow/25-DontBeCuteWithYourTestData.md)  
 [26 不要忽略错误](./97ThingsEveryProgrammerShouldKnow/26-DontIgnoreThatError.md)  
 [27 不要只是学语言，要理解它的文化](./97ThingsEveryProgrammerShouldKnow/27-DontJustLearnTheLanguages-UnderstandItsCulture.md)  
+[28 不要僵直钉死你的程序](./97ThingsEveryProgrammerShouldKnow/28-DontNailYourProgramIntoTehUprightPosition.md)  
