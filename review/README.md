@@ -1,0 +1,1 @@
+[29 不要依赖“魔法出现”](./97ThingsEveryProgrammerShouldKnow/29-DontRelyOnMagicHappenHere.md)  
