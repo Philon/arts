@@ -6,6 +6,7 @@
 [第四章 数组、切片和映射](./GoInAction/chapter4/readme.md)  
 [第五章 类型系统](./GoInAction/chapter5/readme.md)  
 [第六章 并发](./GoInAction/chapter6/)  
+[第七章 并发模式](./GoInAction/chapter7)  
 
 ## GO语言学习笔记
 [1 hello GO](./go/01-hello.md)  
