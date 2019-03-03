@@ -1,4 +1,4 @@
-package main
+package runner
 
 import (
 	"errors"
@@ -61,6 +61,7 @@ func (r *Runner) Start() error {
 		r.complete <- nil
 	}()
 
+	// 获取无缓冲通道数据时，如果没准备好，会被阻塞
 	select {
 	case err := <-r.complete: // 任务正常实行完返回任务自身的“错误标示”
 		return err
