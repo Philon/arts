@@ -3,6 +3,6 @@
 
 int main(int argc, char* argv[])
 {
-  // todo: unit test
+  assert(longestValidParentheses("((()()(()))") == 10);
   return 0;
 }
