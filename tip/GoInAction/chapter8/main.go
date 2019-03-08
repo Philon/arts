@@ -2,5 +2,8 @@ package main
 
 func main() {
 	// log.Println("hello world")
-	testMyLogger()
+	// testMyLogger()
+
+	GetUser("philon")
+	GetUserMap("philon")
 }
