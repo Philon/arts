@@ -1,9 +1,10 @@
 package main
 
 func main() {
-	// log.Println("hello world")
 	// testMyLogger()
 
-	GetUser("philon")
-	GetUserMap("philon")
+	// DeserializeToType("philon")
+	// DeserializeToMap("philon")
+	// SerializeType()
+	// SerializeMap()
 }

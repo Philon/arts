@@ -10,6 +10,8 @@ import (
 )
 
 // User Github用户账户信息
+// 每个变量最后用反引号标示的字符串是——标签
+// 标签可为之后的json.Decoder提供映射依据
 type User struct {
 	Login             string `json:"login"`
 	ID                int64  `json:"id"`
@@ -43,8 +45,11 @@ type User struct {
 	UpdateAt          string `json:"update_at"`
 }
 
-// GetbUser 获取github的用户信息
-func GetUser(name string) {
+// ----------json解码----------
+
+// DeserializeToType 获取用户信息，并反序列化为User类型
+func DeserializeToType(name string) {
+	// 根据用户名从GitHub获取对应用户的json信息
 	resp, err := http.Get("https://api.github.com/users/" + name)
 	if err != nil {
 		log.Println("ERROR: ", err)
@@ -53,6 +58,7 @@ func GetUser(name string) {
 	defer resp.Body.Close()
 
 	var user User
+	// 通过Decode将响应内容反序列化为对象
 	err = json.NewDecoder(resp.Body).Decode(&user)
 	if err != nil {
 		log.Println("ERROR: ", err)
@@ -61,8 +67,9 @@ func GetUser(name string) {
 	fmt.Printf("user: %v\n", user)
 }
 
-// GetUserMap 获取用户信息，并转换为字典
-func GetUserMap(name string) {
+// DeserializeToMap 获取用户信息，并转换为字典
+// GO语言中的map即数据字典的意思
+func DeserializeToMap(name string) {
 	resp, err := http.Get("https://api.github.com/users/" + name)
 	if err != nil {
 		log.Fatalln("ERROR: ", err)
@@ -70,12 +77,14 @@ func GetUserMap(name string) {
 
 	defer resp.Body.Close()
 
+	// 读取响应Body并转化为[]byte数据结构
 	content, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalln("ERROR: ", err)
 	}
 
 	var user map[string]interface{}
+	// 通过Unmarshal将[]byte转换为字典
 	err = json.Unmarshal(content, &user)
 	if err != nil {
 		log.Fatalln("ERROR: ", err)
@@ -83,4 +92,38 @@ func GetUserMap(name string) {
 
 	fmt.Println("Username: ", user["login"])
 	fmt.Println("Followers: ", user["followers"])
+}
+
+// ----------json编码----------
+
+// SerializeType 将User类型序列化为json字符串
+func SerializeType() {
+	user := &User{
+		Login: "张三",
+		ID:    9527,
+		URL:   "https://api.github.com/users/ZhangSan",
+	}
+
+	// 带缩进格式的序列化，缩进为4个空格
+	data, err := json.MarshalIndent(user, "", "    ")
+	if err != nil {
+		log.Fatalln("ERROR: ", err)
+	}
+
+	fmt.Println(string(data))
+}
+
+// SerializeMap 将字典map序列化为json字符串
+func SerializeMap() {
+	c := make(map[string]interface{})
+	c["name"] = "张三"
+	c["id"] = 9527
+
+	// 不带缩进格式化的序列化
+	data, err := json.Marshal(c)
+	if err != nil {
+		log.Fatalln("ERROR: ", err)
+	}
+
+	fmt.Println(string(data))
 }
