@@ -29,3 +29,4 @@
 [28 不要僵直钉死你的程序](./97ThingsEveryProgrammerShouldKnow/28-DontNailYourProgramIntoTehUprightPosition.md)  
 [29 不要依赖“魔法出现”](./97ThingsEveryProgrammerShouldKnow/29-DontRelyOnMagicHappenHere.md)  
 [30 不要重复自我](./97ThingsEveryProgrammerShouldKnow/30-DontRepeatYourself.md)  
+[31 别碰代码](./97ThingsEveryProgrammerShouldKnow/31-DontTouchThatCode.md)  

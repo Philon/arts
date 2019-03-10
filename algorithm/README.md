@@ -34,3 +34,4 @@
 |030| [Substring with Concatenation of All Words](./030-substring_with_concatenation_of_all_words) | ❌ |   hard   |
 |031| [Next Permutation](./031-next_permutation)                                    | 18.6% |   medium   |
 |032| [Longest Valid Parentheses](./032-longest_valid_parentheses)                  | 100%  |    hard    |
+|033| [Search in Rotated Sorted Array](./033-search_in_rotated_sorted_array)        | 88.3% |   medium   |
