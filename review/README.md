@@ -1,1 +1,1 @@
-[32 概括行为，而不仅仅是状态](./97ThingsEveryProgrammerShouldKnow/32-EncapsulateBehaviorNotJustState.md)  
+[32 封装行为，而不仅仅是状态](./97ThingsEveryProgrammerShouldKnow/32-EncapsulateBehaviorNotJustState.md)  
