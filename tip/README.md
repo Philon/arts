@@ -8,6 +8,7 @@
 [第六章 并发](./GoInAction/chapter6/)  
 [第七章 并发模式](./GoInAction/chapter7)  
 [第八章 标准库](./GoInAction/chapter8)  
+[第九章 测试和性能](./GoInAction/chapter9)
 
 ## GO语言学习笔记
 [1 hello GO](./go/01-hello.md)  
