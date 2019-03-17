@@ -20,6 +20,7 @@ func TestController(t *testing.T) {
 		}
 		t.Log("\t创建请求对象成功 ", checkMark)
 
+		// httptest创建虚拟服务器
 		rw := httptest.NewRecorder()
 		http.DefaultServeMux.ServeHTTP(rw, req)
 
