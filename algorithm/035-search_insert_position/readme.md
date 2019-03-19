@@ -21,3 +21,31 @@ Example 4:
 Input: [1,3,5,6], 0
 Output: 0
 ```
+
+## 我的思路：二分法
+
+本题和第33、34题类似，都是在**已排序**的数组中查找目标值，二分法跑不掉的，就不多解释了。
+
+不过在leetcode上有个比较搞笑的地方，由于测试用例太少，提交后的运行时间看人品，就不要太纠结beats了。
+
+```c
+int searchInsert(int* nums, int numsSize, int target) {
+  int left = 0;
+  int right = numsSize - 1;
+
+  while (left <= right) {
+    int i = (left + right) / 2;
+    if (nums[i] > target) {
+      right = i - 1;
+    } else if (nums[i] < target) {
+      left = i + 1;
+    } else {
+      return i;
+    }
+  }
+
+  return left;
+}
+```
+- 时间复杂度：O(logN)
+- 空间复杂度：O(1)
