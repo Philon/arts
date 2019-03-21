@@ -10,7 +10,7 @@
 
 为了避免繁琐地硬件环境搭建，学习过程尽可能基于虚拟的arm开发板，既能保证环境统一，又能快速上手👍。
 
-另外，我个人的“战果”全部放在git仓库：[github/philon/varm]()
+另外，我个人的“战果”全部放在git仓库：[github/philon/varm](https://github.com/philon/varm)
 
 **个人开发环境：**
 
