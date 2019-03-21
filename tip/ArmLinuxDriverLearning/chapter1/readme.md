@@ -14,10 +14,10 @@
 
 **个人开发环境：**
 
-- 宿主机：macOS(如果是Windows平台，建议上virtualbox+ubuntu)
+- 宿主机：Ubuntu 18.04
 - 开发板：qemu+vexpress-a9
 - 编辑器：visual studio code
-- 编译器：arm-linux-gnueabi-gcc
+- 编译器：arm-linux-gnueabihf-gcc
 
 关于如何安装Linux虚拟机以及交叉编译环境的搭建这里就不写了，网上教程一大堆。所以从现在开始，阅读下文的前提是：Linux、arm-linux-gcc、各种源码编辑器环境已就绪。
 
@@ -56,7 +56,7 @@ xilinx-zynq-a9       Xilinx Zynq Platform Baseboard for Cortex-A9
 z2                   Zipit Z2 (PXA27x)
 ```
 
-选中自己喜欢的“硬件”环境后，理论上就可以“上电”了，不过且慢——操作系统还没装呢！所以接下来很重要的一步就是制作自己的Linux系统镜像。
+选中自己喜欢的“硬件”环境后，理论上就可以“上电”了，不过且慢——**操作系统还没装呢**！所以接下来很重要的一步就是制作自己的Linux系统镜像。
 
 ## 制作Linux系统镜像
 
@@ -72,6 +72,9 @@ z2                   Zipit Z2 (PXA27x)
 从[linux内核官网](https://www.kernel.org)下载源码并解压(我嘞个去！Linux都步入5.0时代了，果断下载)，然后根据以下命令移植：
 
 ```sh
+# 0. 可能需要安装flex、bsion，如果之前没装的话，否则编译镜像时会出错
+$ sudo apt install flex bison
+
 # 1. 解压源码并进入目录
 ~/varm/os$ tar xf linux-5.0.3.tar.xz && cd linux-5.0.3
 
@@ -88,14 +91,16 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules -j8
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs -j8
 ```
 
-macOS平台编译内核是可能会遇到`'elf.h' file not found`的情况，其原因是macOS系统没有elf.h这个文件，可以从[这里](https://www.rockbox.org/tracker/9006?getfile=16683)下载一个elf.h的源码并放到内核工程的`scripts`目录下。然后将提示该错误的所有文件(如scripts/mod/mk_elfconfig.c)的`#include <elf.h>`改为`#include "elf.h"`即可。说白了就是强行指定头文件所在位置。
-
 根据上述命令完成kernel移植之后，所有需要的镜像及其相关文件全部放在`<kernel_dir>/arch/arm/boot`中：
 ```sh
 # zImage和dts就是真正需要的东西
 ~/varm/os/linux-5.0.3$ ls arch/arm/boot/
 Image               bootp               deflate_xip_data.sh install.sh
 Makefile            compressed          dts                 zImage
+
+# 为了之后操作方便，我把它们放到varm/os目录下
+~/varm/os/linux-5.0.3$ cp -rf arch/arm/boot/zImage .. # 内核镜像
+~/varm/os/linux-5.0.3$ cp -f arch/arm/boot/dts/vexpress-v2p-ca9.dtb .. # 设备树描述
 ```
 
 **第二步：启动内核**
@@ -103,56 +108,75 @@ Makefile            compressed          dts                 zImage
 既然有了内核镜像文件，就可以先小试牛刀了，qemu走起！
 
 ```sh
-$ qemu-system-arm -M vexpress-a9 -m 512M -kernel arch/arm/boot/zImage -dtb arch/arm/boot/dts/vexpress-v2p-ca9.dtb -nographic -append "console=ttyAMA0"
+~/varm/os/linux-5.0.3$
+~/varm/os$ qemu-system-arm -M vexpress-a9 -m 512M -kernel zImage -dtb vexpress-v2p-ca9.dtb -nographic
 
 Booting Linux on physical CPU 0x0
-Linux version 5.0.3 (philon@LMac.local) (gcc version 6.3.0 (crosstool-NG crosstool-ng-1.23.0)) #1 SMP Wed Mar 20 21:47:37 CST 2019
+Linux version 5.0.3 (philon@philon-matebook) (gcc version 7.3.0 (Ubuntu/Linaro 7.3.0-27ubuntu1~18.04)) #1 SMP Thu Mar 21 20:44:13 CST 2019
 CPU: ARMv7 Processor [410fc090] revision 0 (ARMv7), cr=10c5387d
 ...
+Exception stack(0x9e4a1fb0 to 0x9e4a1ff8)
+1fa0:                                     00000000 00000000 00000000 00000000
+1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+---[ end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0) ]---
 ```
 
-可以看到kernel被成功启动了！不过上述命令比较长，简单解释下：
+可以看到kernel被成功启动了，但由于没有文件系统，内核向你抛出了一个异常。  
+此外，上述命令比较长，简单解释下：
 ```sh
-$ qemu-system-arm \
+qemu-system-arm \ # 虚拟机启动
 -M vexpress-a9 \ # 指定开发板为vexpress-a9
 -m 512M \ # 配置虚拟机内存为512M
--kernel arch/arm/boot/zImage \ # 指定内核镜像位置
--dtb arch/arm/boot/dts/vexpress-v2p-ca9.dtb \ # 指定设备树位置
+-kernel zImage \ # 指定内核镜像文件
+-dtb vexpress-v2p-ca9.dtb \ # 指定设备树文件
 -nographic \ # 不需要图形界面(LCD)
--append "console=ttyAMA0" # 串口0作为终端输出
+```
+
+还有一点，quem启动后是一个独立进程，所有的Ctrl+C和其他中断信号都会被这个进程来接，程序无法关闭，最好的办法是新建一个终端，用kill来杀！
+```sh
+$ killall qemu-system-arm
+# 也可以是ps先看qemu的pid，在用kill <pid>来杀，我只是觉得那样麻烦
 ```
 
 **第三步：移植busybox**
 
 ```sh
-# 1. 选择默认配置
-$ make ARCH=arm CROSS_COMPILE=arm-mac-linux-gnueabihf- defconfig
+# 1. 解压源码并进入目录
+~/varm/os$ tar xf busybox-1.30.1.tar.bz2 && cd busybox-1.30.1
 
-# 2. 编译busybox
-$ make ARCH=arm CROSS_COMPILE=arm-mac-linux-gnueabihf-
+# 2. 选择默认配置
+~/varm/os/busybox-1.30.1$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- defconfig
 
-# 3. 安装busybox到./_install目录
-$ make ARCH=arm CROSS_COMPILE=arm-mac-linux-gnueabihf- install
+# 3. 编译busybox
+~/varm/os/busybox-1.30.1$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8
 
+# 4. 安装busybox到./_install目录
+~/varm/os/busybox-1.30.1$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- install
+
+# 顺利完成上述步骤后，可以在`busybox/_install`
+# 目录下看到各种`usr lib bin`之类的文件系统结构
+# 这就是rootfs的雏形了，现在还需要在此基础上做些加工
+
+# 5. 为了方便之后操作，一样将_install目录放到varm/os下，并重命名为rootfs
+~/varm/os/busybox-1.30.1$ mv _install ../rootfs
 ```
-
-顺利完成上述步骤后，可以在`busybox/_install`目录下看到各种`usr lib bin`之类的文件系统结构，这就是rootfs的雏形了，现在还需要在此基础上做些加工。
 
 **第四步：制作根文件系统rootfs**
 
+busybox已经生成了linux常用的一些命令和简单的目录结构，现在还差两个东西：
+- busybox的命令执行是依赖于交叉编译工具的动态库的，所以要把动态库放入rootfs
+- 需要给文件系统一些默认的设备描述符，否则你想让它往哪输出
+
 ```sh
-# 1. 新建一个rootfs目录，存放根文件系统的所有数据
-$ mkdir -p rootfs
+# 1. 拷贝根文件系统的“必需品”到rootfs目录
+~/varm/os/busybox-1.30.1$ cd ..
+~/varm/os$ mkdir rootfs/lib # 创建系统库文件存放目录
+~/varm/os$ cp -P /usr/arm-linux-gnueabihf/lib/*.so* rootfs/lib # 拷贝gcc动态库
 
-# 2. 拷贝根文件系统的“必需品”到rootfs目录
-$ cp -f busybox/_install/* rootfs/ # busybox程序
-$ cp -P /opt/arm-linux-gcc/lib/* rootfs/lib/ # gcc库
-
-# 3. 创建4个tty终端和调试串口
-sudo mknod rootfs/dev/tty1 c 4 1
-sudo mknod rootfs/dev/tty2 c 4 2
-sudo mknod rootfs/dev/tty3 c 4 3
-sudo mknod rootfs/dev/tty4 c 4 4
+# 2. 创建设备目录以及4个tty终端和调试串口
+~/varm/os$ mkdir rootfs/dev # 创建设备描述符目录
+~/varm/os$ for i in 1 2 3 4; do sudo mknod rootfs/dev/tty$i c 4 $i; done
 ```
 
 **第五步：创建rootfs镜像**
@@ -161,16 +185,37 @@ sudo mknod rootfs/dev/tty4 c 4 4
 
 ```sh
 # 1. 生成镜像文件(虚拟SD卡)，且大小为32M
-$ dd if=/dev/zero of=rootfs.ext3 bs=1M count=32
-$ mkfs.ex3 rootfs.ext3
+$ dd if=/dev/zero of=rootfs.ext3 bs=1M count=32 # 创建一个32M的空文件
+$ mkfs.ext3 rootfs.ext3 # 将该文件格式化为ext3
 
-# 2. 挂在镜像，并将rootfs目录导入其中
-$ sudo mount -t ext3 -o loop rootfs.ext3 /mnt
+# 2. 挂在镜像到/mnt目录，并将rootfs目录导入其中
+$ sudo mount -o loop rootfs.ext3 /mnt
 $ sudo cp -r rootfs/* /mnt
-$ sudo umount
+$ sudo umount /mnt
 ```
 
-现在整个rootfs.ex3镜像制作完成，再加上zImage内核镜像，~~可以起飞了~~可以开机正常加载了，重新调整一下qemu的启动命令：
+现在整个rootfs.ext3镜像制作完成，再加上zImage内核镜像，~~可以起飞了~~可以开机正常加载了，重新调整一下qemu的启动命令：
 ```sh
-~/varm/os$ qemu-system-arm -M vexpress-a9 -m 512M -kernel zImage -dtb vexpress-v2p-ca9.dtb -nographic -append "init=/linuxrc root=/dev/mmcblk0p1 rw rootwait earlyprintk console=ttyAMA0"
+~/varm/os$ qemu-system-arm -M vexpress-a9 -m 512M -kernel zImage -dtb vexpress-v2p-ca9.dtb -sd rootfs.ext3 -nographic -append "root=/dev/mmcblk0 console=ttyAMA0"
+
+Booting Linux on physical CPU 0x0
+# ......各种Linux内核启动信息打印之后......
+Run /sbin/init as init process
+random: crng init done
+can not run '/etc/init.d/rcS': No such file or directory
+
+Please press Enter to activate this console. 
+/ # ls
+bin         lib         lost+found  usr
+dev         linuxrc     sbin
+
+# 如果顺利的话内核会成功挂在文件系统，从此可以愉快玩耍了
 ```
+
+以上就是整个ArmLinux的虚拟机搭建过程，目前位置整个环境基本OK，但在真正写代码之前还有些事情要做，总之等遇到了再查缺补漏。
+
+## 小结一下
+
+- QEMU是一款虚拟机，可以虚拟常见的通用处理器架构，包括ARM，支持很多开发板模拟
+- vexpress-a9是ARM官方出的一款开发板
+- QEMU可以直接引导内核，因此可以不用移植u-boot
