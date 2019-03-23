@@ -108,19 +108,11 @@ Makefile            compressed          dts                 zImage
 既然有了内核镜像文件，就可以先小试牛刀了，qemu走起！
 
 ```sh
-~/varm/os/linux-5.0.3$
+~/varm/os/linux-5.0.3$ cd ..
 ~/varm/os$ qemu-system-arm -M vexpress-a9 -m 512M -kernel zImage -dtb vexpress-v2p-ca9.dtb -nographic
-
-Booting Linux on physical CPU 0x0
-Linux version 5.0.3 (philon@philon-matebook) (gcc version 7.3.0 (Ubuntu/Linaro 7.3.0-27ubuntu1~18.04)) #1 SMP Thu Mar 21 20:44:13 CST 2019
-CPU: ARMv7 Processor [410fc090] revision 0 (ARMv7), cr=10c5387d
-...
-Exception stack(0x9e4a1fb0 to 0x9e4a1ff8)
-1fa0:                                     00000000 00000000 00000000 00000000
-1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
----[ end Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0) ]---
 ```
+
+![](https://i.loli.net/2019/03/23/5c96479700132.png)
 
 可以看到kernel被成功启动了，但由于没有文件系统，内核向你抛出了一个异常。  
 此外，上述命令比较长，简单解释下：
@@ -141,18 +133,20 @@ $ killall qemu-system-arm
 
 **第三步：移植busybox**
 
+同样先从[busybox官网](https://busybox.net)把源码包下载下来，然后开始移植：
+
 ```sh
 # 1. 解压源码并进入目录
 ~/varm/os$ tar xf busybox-1.30.1.tar.bz2 && cd busybox-1.30.1
 
 # 2. 选择默认配置
-~/varm/os/busybox-1.30.1$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- defconfig
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- defconfig
 
 # 3. 编译busybox
-~/varm/os/busybox-1.30.1$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j8
 
 # 4. 安装busybox到./_install目录
-~/varm/os/busybox-1.30.1$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- install
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- install
 
 # 顺利完成上述步骤后，可以在`busybox/_install`
 # 目录下看到各种`usr lib bin`之类的文件系统结构
@@ -197,22 +191,13 @@ $ sudo umount /mnt
 现在整个rootfs.ext3镜像制作完成，再加上zImage内核镜像，~~可以起飞了~~可以开机正常加载了，重新调整一下qemu的启动命令：
 ```sh
 ~/varm/os$ qemu-system-arm -M vexpress-a9 -m 512M -kernel zImage -dtb vexpress-v2p-ca9.dtb -sd rootfs.ext3 -nographic -append "root=/dev/mmcblk0 console=ttyAMA0"
-
-Booting Linux on physical CPU 0x0
-# ......各种Linux内核启动信息打印之后......
-Run /sbin/init as init process
-random: crng init done
-can not run '/etc/init.d/rcS': No such file or directory
-
-Please press Enter to activate this console. 
-/ # ls
-bin         lib         lost+found  usr
-dev         linuxrc     sbin
-
-# 如果顺利的话内核会成功挂在文件系统，从此可以愉快玩耍了
 ```
 
-以上就是整个ArmLinux的虚拟机搭建过程，目前位置整个环境基本OK，但在真正写代码之前还有些事情要做，总之等遇到了再查缺补漏。
+上边的命令大体上和内核启动时一样，主要是增加了`-sd rootfs.ext3`文件系统的SD卡和对应分区，以确保内核能正确加载文件系统。经过一分钟左右的等待，我们的最小Linux系统成功运行起来了😄：
+
+![](https://i.loli.net/2019/03/23/5c9649750ea24.png)
+
+如果顺利的话内核会成功挂在文件系统，从此可以愉快玩耍了。以上就是整个ArmLinux的虚拟机搭建过程，目前位置整个环境基本OK，但在真正写代码之前还有些事情要做，总之等遇到了再查缺补漏。
 
 ## 小结一下
 
