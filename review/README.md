@@ -1,0 +1,1 @@
+[34 通过开源实现你的抱负](./97ThingsEveryProgrammerShouldKnow/34-FulfillYourAmbitionsWithOpenSource.md)  
