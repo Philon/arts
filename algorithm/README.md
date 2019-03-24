@@ -36,3 +36,4 @@
 |032| [Longest Valid Parentheses](./032-longest_valid_parentheses)                  | 100%  |    hard    |
 |033| [Search in Rotated Sorted Array](./033-search_in_rotated_sorted_array)        | 88.3% |   medium   |
 |034| [Find First and Last Position of Element in Sorted Array](./034-find_first_and_last_position_of_element_in_sorted_array)        | 100% |   medium   |
+|035| [Search Insert Position](./035-search_insert_position)                        | 74.8% |   medium   |

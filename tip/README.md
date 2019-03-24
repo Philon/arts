@@ -1,5 +1,7 @@
-## 《GO语言实战》学习笔记
+## 嵌入式Linux驱动学习
+[一 环境准备](./ArmLinuxDriverLearning/chapter1/readme.md)  
 
+## 《GO语言实战》学习笔记
 [第一章 开篇](./GoInAction/chapter1.md)  
 [第二章 RSS阅读器](./GoInAction/chapter2/readme.md)  
 [第三章 打包和工具链](./GoInAction/chapter3/readme.md)  
