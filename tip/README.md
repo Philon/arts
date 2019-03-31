@@ -1,5 +1,6 @@
 ## 嵌入式Linux驱动学习
 [一 环境准备](./ArmLinuxDriverLearning/chapter1/readme.md)  
+[HelloWorld](./ArmLinuxDriverLearning/chapter2)  
 
 ## 《GO语言实战》学习笔记
 [第一章 开篇](./GoInAction/chapter1.md)  

@@ -27,7 +27,7 @@
 |023| [Merge K Sorted Lists](./023-merge_k_sorted_lists)                            | 100%  |    hard    |
 |024| [Swap Nodes in Pairs](./024-swap_nodes_in_pairs)                              | 100%  |   medium   |
 |025| [Reverse Nodes in K-Group](./025-reverse_nodes_in_k-group)                    | 100%  |    hard    |
-|026| [Remove Duplicates From Sorted Array](./026-remove_duplicates_from-sorted_array)| 100%  |    easy    |
+|026| [Remove Duplicates From Sorted Array](./026-remove_duplicates_from-sorted_array)| 100%|    easy    |
 |027| [Remove Element](./027-remove_element)                                        | 100%  |    easy    |
 |028| [Implement strStr](./028-implement_strstr)                                    | 100%  |    easy    |
 |029| [Divide Two Integers](./029-divide_two_integers)                              | 100%  |   medium   |
@@ -36,4 +36,5 @@
 |032| [Longest Valid Parentheses](./032-longest_valid_parentheses)                  | 100%  |    hard    |
 |033| [Search in Rotated Sorted Array](./033-search_in_rotated_sorted_array)        | 88.3% |   medium   |
 |034| [Find First and Last Position of Element in Sorted Array](./034-find_first_and_last_position_of_element_in_sorted_array)        | 100% |   medium   |
-|035| [Search Insert Position](./035-search_insert_position)                        | 74.8% |   medium   |
+|035| [Search Insert Position](./035-search_insert_position)                        | 74.8% |    easy    |
+|036| [Valid Sudoku](./036-valid_sudoku)                                            | 100%  |   medium   |
