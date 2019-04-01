@@ -1,0 +1,1 @@
+[35 API设计黄金法则](./97ThingsEveryProgrammerShouldKnow/35-TheGoldenRuleOfApiDesign.md)  
