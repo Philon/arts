@@ -33,3 +33,4 @@
 [32 封装行为，而不仅仅是状态](./97ThingsEveryProgrammerShouldKnow/32-EncapsulateBehaviorNotJustState.md)  
 [33 浮点数不是实数](./97ThingsEveryProgrammerShouldKnow/33-Floating-pointNumbersArentReal.md)  
 [34 通过开源实现你的抱负](./97ThingsEveryProgrammerShouldKnow/34-FulfillYourAmbitionsWithOpenSource.md)  
+[35 API设计黄金法则](./97ThingsEveryProgrammerShouldKnow/35-TheGoldenRuleOfApiDesign.md)  
