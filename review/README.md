@@ -1,0 +1,1 @@
+[36 大师神话](./97ThingsEveryProgrammerShouldKnow/36-TheGuruMyth.md)  
