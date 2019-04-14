@@ -34,3 +34,4 @@
 [33 浮点数不是实数](./97ThingsEveryProgrammerShouldKnow/33-Floating-pointNumbersArentReal.md)  
 [34 通过开源实现你的抱负](./97ThingsEveryProgrammerShouldKnow/34-FulfillYourAmbitionsWithOpenSource.md)  
 [35 API设计黄金法则](./97ThingsEveryProgrammerShouldKnow/35-TheGoldenRuleOfApiDesign.md)  
+[36 大师神话](./97ThingsEveryProgrammerShouldKnow/36-TheGuruMyth.md)  

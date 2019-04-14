@@ -39,3 +39,4 @@
 |035| [Search Insert Position](./035-search_insert_position)                        | 74.8% |    easy    |
 |036| [Valid Sudoku](./036-valid_sudoku)                                            | 100%  |   medium   |
 |037| [Sudoku Solver](./037-sudoku_solver)                                          | 100%  |    hard    |
+|038| [Count and Say](./038-count_and_say)                                          | 75.7% |    easy    |
