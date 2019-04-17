@@ -163,4 +163,131 @@ struct file_operations {
 } __randomize_layout;
 ```
 
-乍一看，很复杂！
+乍一看，很复杂！其实用面向对象的思维可以简单理解为——**file_operations就是一个需要继承实现的interface**。因此不要去纠结里面的内容有多少，大部分时候我们都是根据需要去实现其中的部分函数即可，等具体实现的时候再来参考对应函数在其中的声明形式。(通过该结构体打通了内核与应用间的任督二脉)
+
+先来实现`read/write/open/close`函数：
+
+- open和close一般都是处理一些设备复位的工作(或者干脆不做任何处理)，但如果有逻辑要放在open/close里执行，务必留意应用程序可能会重复多次打开/关闭同一个文件的情况。
+- read/write在内核中主要围绕`copy_to_user`和`copy_from_user`两个函数来处理，它们负责把“交换”用户空间与内核模块的数据，但要特别小心**文件偏移，不是所有设备在读写的时候都需要偏移的**！比如读取LED灯的状态，每次都应该从头开始读。
+
+```c
+// 对应用户层read读取函数，通常用户接收设备内容，如串口收数据
+static ssize_t meme_read(struct file* filp, char __user *buf, size_t size, loff_t* off)
+{
+    // 如果当前文件偏移量已经超出内存大小，直接返回错误
+    if (*off >= meme.size) {
+        return -ENOMEM;
+    }
+
+    // 如果当前可访问内存长度小于要读取的长度，仅读取可访问长度
+    if ((*off + size) > meme.size) {
+        size = meme.size - *off;
+    }
+
+    // 拷贝内核数据到用户空间
+    if (copy_to_user(buf, filp->private_data + *off, size)) {
+        return -EFAULT;
+    }
+
+    // 偏移相应的读取长度
+    *off += size;
+    return size;
+}
+
+// 对应用户层write写入函数，通常用于写入设备内容，如串口发数据
+static ssize_t meme_write(struct file* filp, const char __user *buf, size_t size, loff_t* off)
+{
+    // 如果文件偏移超出内存长度，就没必要再写了
+    if (*off >= meme.size) {
+        return 0;
+    }
+
+    // 如果要写入的数据长度比剩余可访问的内存长度还要大，仅写入可访问的内存长度
+    if (*off + size > meme.size) {
+        size = meme.size - *off;
+    }
+
+    // 拷贝用户数据到内核空间
+    if (copy_from_user(filp->private_data + *off, buf, size)) {
+        return -EFAULT;
+    }
+
+    // 偏移相应的写入函数
+    *off += size;
+    return size;
+}
+
+// 对应用户层open打开函数，就是打开设备描述符
+static int meme_open(struct inode* inode, struct file* filp)
+{
+    // 如果是第一次访问设备节点，分配内存
+    if (meme.data == NULL) {
+        meme.data = kmalloc(MEME_DEFAULT_DATA_SIZE, GFP_KERNEL);
+    }
+
+    filp->private_data = meme.data;
+    
+    return 0;
+}
+
+// 对应用户层close关闭函数，就是关闭设备文件
+static int meme_close(struct inode* inode, struct file* filp)
+{
+    // nothing todo
+    return 0;
+}
+
+// 文件操作结构体，表示内核模块与用户层的函数对应关系
+static const struct file_operations fops = {
+    .owner = THIS_MODULE, // 这其实是个结构体，比如THIS_MODULE->name
+    .read = meme_read,
+    .write = meme_write,
+    .open = meme_open,
+    .release = meme_close,
+};
+```
+
+代码很简单，该说的注释都已经说了，除了file_operations里的这句：`.owner = THIS_MODULE`。首先要直到THIS_MODULE是一个结构体定义，之所以把它指向owner(模块自身)是为了防止模块正在进行其他操作(如读写)时，被rmmod卸载。每个以模块形式存在的驱动，最好都把这句加上！
+
+## 设备节点与操作
+
+我们的meme字符设备驱动到现在已经“初具规模”，既然支持了读写操作，理论上用`cat/echo`等命令直接操作应该没什么问题，试试：
+
+```sh
+# 将驱动模块拷贝到镜像
+$ cd ~/varm/os/
+$ sudo mount -o loop rootfs.ext3 /mnt
+$ sudo cp ../drivers/meme/meme.ko /mnt
+$ sudo umount /mnt
+$ ./power_on.sh # 启动varm系统
+
+# 以下是qemu虚拟机内操作
+/$ insmod meme.ko 
+meme: loading out-of-tree module taints kernel.
+meme init: 250:0 # 👈字符设备注册成功，主设备号250，次设备号0
+
+/$ cat /proc/devices
+Character devices:
+  1 mem
+  2 pty
+  ...
+250 meme # 👈通过/proc/devices也可以看到模块信息
+251 rpmb
+252 usbmon
+253 rtc
+  ...
+
+# 创建设备节点，根据设备号
+/$ mknod /dev/meme c 250 0
+# 用echo命令写内容到设备节点
+/$ echo "I am Philon, I want to be a creator!" >> /dev/meme 
+# 用cat命令从设备节点读内容
+/$ cat /dev/meme 
+I am Philon, I want to be a creator! # 👈说明读写、开关函数都成功了
+4 	(?U
+           ?U
+             ?U
+             444  TT?i????~,?~f??
+```
+
+从上面的操作中可以看到，meme驱动的基本文件操作功能已经具备，之所以最后读出来的内容有乱码，是因为这是一个设备，不是普通文件，该设备强制有`0x100`的存储空间，每次都会被全部读出来。
