@@ -1,1 +1,1 @@
-[37 努力工作不会得到回报](./97ThingsEveryProgrammerShouldKnow/37-HardWorkDoesNotPayOff.md)  
+[37 高强度工作不会得到回报](./97ThingsEveryProgrammerShouldKnow/37-HardWorkDoesNotPayOff.md)  
