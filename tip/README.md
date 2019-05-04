@@ -2,7 +2,8 @@
 [一 环境准备](./ArmLinuxDriverLearning/chapter1)  
 [二 HelloWorld](./ArmLinuxDriverLearning/chapter2)  
 [三 rootfs启动过程详解](./ArmLinuxDriverLearning/chapter3)  
-[四 字符设备](./ArmLinuxDriverLearning/chapter4)
+[四 字符设备](./ArmLinuxDriverLearning/chapter4)  
+[Linux驱动调试技术](./ArmLinuxDriverLearning/chapter5)  
 
 ## 《GO语言实战》学习笔记
 [第一章 开篇](./GoInAction/chapter1.md)  

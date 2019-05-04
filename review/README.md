@@ -35,3 +35,4 @@
 [34 通过开源实现你的抱负](./97ThingsEveryProgrammerShouldKnow/34-FulfillYourAmbitionsWithOpenSource.md)  
 [35 API设计黄金法则](./97ThingsEveryProgrammerShouldKnow/35-TheGoldenRuleOfApiDesign.md)  
 [36 大师神话](./97ThingsEveryProgrammerShouldKnow/36-TheGuruMyth.md)  
+[37 高强度工作不会得到回报](./97ThingsEveryProgrammerShouldKnow/37-HardWorkDoesNotPayOff.md)  
