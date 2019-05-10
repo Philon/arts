@@ -159,6 +159,41 @@ void synchronize_rcu(void);
 void call_rcu(struct callback_head *head, rcu_callback_t func);
 ```
 
-## 信号量与互斥体
+## 互斥体
 
-## 完成量
+互斥的机制在多线程中是很常见的，Linux内核的互斥体`metux`本质是由自旋锁实现的。但与自旋锁不同的是，互斥体会进入默认睡眠，放弃CPU抢占。
+
+```c
+#include <linux/mutex.h>
+
+// 定义一个互斥体
+struct mutex mutex;
+mutex_init(&mutex);
+
+// 上锁/解锁方式
+void mutex_lock(struct mutex *lock);  // 睡眠后不可被中断
+int mutex_lock_interruptible(struct mutex *lock); // 睡眠后可被中断
+int mutex_trylock(struct mutex *lock);  // 如果能解锁就立即返回0，否则立即返回非0
+void mutex_unlock(struct mutex *lock);  // 解锁
+```
+
+## completion
+
+completion就是指一个执行单元等待另一个执行单元的完成信号，有点多线程同步的意思。
+
+```c
+#include <linux/completion.h>
+
+// 定义一个completion
+struct completion completion;
+void init_completion(struct completion *x);
+void reinit_completion(struct completion *x);
+
+// 等待completion标志
+void wait_for_completion(struct completion *);
+
+// 唤醒一个执行单元
+void complete(struct completion *);
+// 唤醒所有执行单元
+void complete_all(struct completion *);
+```
