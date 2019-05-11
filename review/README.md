@@ -36,3 +36,4 @@
 [35 API设计黄金法则](./97ThingsEveryProgrammerShouldKnow/35-TheGoldenRuleOfApiDesign.md)  
 [36 大师神话](./97ThingsEveryProgrammerShouldKnow/36-TheGuruMyth.md)  
 [37 高强度工作不会得到回报](./97ThingsEveryProgrammerShouldKnow/37-HardWorkDoesNotPayOff.md)  
+[38 如何使用Bug追踪器](./97ThingsEveryProgrammerShouldKnow/38-HowToUseABugTracker.md)  

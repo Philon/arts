@@ -41,3 +41,4 @@
 |037| [Sudoku Solver](./037-sudoku_solver)                                          | 100%  |    hard    |
 |038| [Count and Say](./038-count_and_say)                                          | 75.7% |    easy    |
 |039| [Combination Sum](./039-combination_sum)                                      | 100%  |   medium   |
+|040| [Combination Sum II](./040-combination_sum_II)                                | 100%  |   medium   |
