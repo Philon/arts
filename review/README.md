@@ -1,0 +1,1 @@
+[39 通过删除来改善代码](./97ThingsEveryProgrammerShouldKnow/39-ImproveCodeByRemovingIt.md)  
