@@ -50,6 +50,16 @@ static irqreturn_t intrrupt_handler(int irq, void* dev);
 
 ## 底半部中断编程
 
+一般来说，顶半部执行完底半部实现
+
+### 1. tasklet
+
+### 2. 工作队列
+
+### 3. 软中断
+
+### 4. threaded_irq
+
 ## 内核定时器
 
 ```c
