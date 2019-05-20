@@ -1,0 +1,1 @@
+[40 安装我](./97ThingsEveryProgrammerShouldKnow/40-InstallMe)  
