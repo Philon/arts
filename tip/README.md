@@ -5,6 +5,7 @@
 [四 字符设备](./ArmLinuxDriverLearning/chapter4)  
 [五 Linux驱动调试技术](./ArmLinuxDriverLearning/chapter5)  
 [六 并发和竞态](./ArmLinuxDriverLearning/chapter6)  
+[七 中断与时钟](./ArmLinuxDriverLearning/chapter7)  
 
 ## 《GO语言实战》学习笔记
 [第一章 开篇](./GoInAction/chapter1.md)  
