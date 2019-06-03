@@ -43,3 +43,4 @@
 |039| [Combination Sum](./039-combination_sum)                                      | 100%  |   medium   |
 |040| [Combination Sum II](./040-combination_sum_II)                                | 100%  |   medium   |
 |041| [First Missing Positive](./040-first_missing_positive)                        | 100%  |    hard    |
+|042| [Trapping Rain Water](./042-trapping_rain_water)                              |  98%  |    hard    |

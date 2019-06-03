@@ -38,3 +38,4 @@
 [37 高强度工作不会得到回报](./97ThingsEveryProgrammerShouldKnow/37-HardWorkDoesNotPayOff.md)  
 [38 如何使用Bug追踪器](./97ThingsEveryProgrammerShouldKnow/38-HowToUseABugTracker.md)  
 [39 通过删除来改善代码](./97ThingsEveryProgrammerShouldKnow/39-ImproveCodeByRemovingIt.md)  
+[40 安装我](./97ThingsEveryProgrammerShouldKnow/40-InstallMe)  
