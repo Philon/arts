@@ -1,4 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
 class Solution {
 public:
-    // todo: algorithm implementation
+    string multiply(string num1, string num2) {
+        
+    }
 };

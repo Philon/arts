@@ -3,6 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-  // todo: unit test
+  Solution s;
+  assert(s.multiply("123", "456") == "56088";
   return 0;
 }
