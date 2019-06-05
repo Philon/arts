@@ -14,6 +14,9 @@ public:
     reverse(num1);
     reverse(num2);
 
+    const char* a = num1.c_str();
+    const char* b = num2.c_str();
+
     for (int i = 0; i < len1; i++) {
       string product = "";
       int n1 = num1[i] - '0';
@@ -27,12 +30,12 @@ public:
       for (int j = 0; j < len2; j++) {
         int n2 = num2[j] - '0';
         int p = (n1 * n2) + carry;
-        product += to_string(p % 10);
+        product += (p % 10) + '0';
         carry = p / 10;
       }
 
       if (carry > 0) {
-        product += to_string(carry);
+        product += carry + '0';
       }
 
       products.push_back(product);
@@ -67,16 +70,17 @@ private:
     }
   }
 
-  string add(string& a, string& b) {
+  string add(string& num1, string& num2) {
     string sum = "";
+    const char* a = num1.c_str();
+    const char* b = num2.c_str();
     int carry = 0;
-    for (int i = 0; a[i] || b[i] || carry; i++) {
 
+    while (*a || *b || carry) {
       int n = carry;
-      if (a[i]) n += (a[i] - '0');
-      if (b[i]) n += (b[i] - '0');
-
-      sum += to_string(n % 10);
+      if (*a) { n += *a - '0'; a++; }
+      if (*b) { n += *b - '0'; b++; }
+      sum += (n % 10) + '0';
       carry = n / 10;
     }
 
