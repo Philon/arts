@@ -39,3 +39,4 @@
 [38 如何使用Bug追踪器](./97ThingsEveryProgrammerShouldKnow/38-HowToUseABugTracker.md)  
 [39 通过删除来改善代码](./97ThingsEveryProgrammerShouldKnow/39-ImproveCodeByRemovingIt.md)  
 [40 安装我](./97ThingsEveryProgrammerShouldKnow/40-InstallMe)  
+[41 进程间通信影响应用响应时间](./97ThingsEveryProgrammerShouldKnow/41-InterProcessCommunicationAffectsApplicationResponseTime.md)  
