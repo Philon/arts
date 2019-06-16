@@ -45,3 +45,4 @@
 |041| [First Missing Positive](./040-first_missing_positive)                        | 100%  |    hard    |
 |042| [Trapping Rain Water](./042-trapping_rain_water)                              |  98%  |    hard    |
 |043| [Multiply Strings](./043-mutiply_strings)                                     | 92.6% |   medium   |
+|044| [Wildcard Matching](./044-wildcard_matching)                                  | 40.3% |    hard    |
