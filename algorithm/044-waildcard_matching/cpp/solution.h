@@ -12,18 +12,18 @@ public:
 
     dp[0][0] = true;
     for (int i = 1; i <= plen; i++) {
-      dp[0][i] = p[i] == '*' && dp[0][i - 1];
+      dp[0][i] = p[i-1] == '*' && dp[0][i - 1];
     }
 
     for (int i = 1; i <= slen; i++) {
       for (int j = 1; j <= plen; j++) {
         char c = p[j-1];
         if (c == '*') {
-          dp[i][j] = dp[i][j-1];
+          dp[i][j] = dp[i-1][j] || dp[i][j-1];
         } else if (c == '?') {
           dp[i][j] = dp[i-1][j-1];
         } else {
-          dp[i][j] = dp[i-1][j-1] && s[i-1] == c;
+          dp[i][j] = s[i-1] == p[j-1] && dp[i-1][j-1];
         }
       }
     }
