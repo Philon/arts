@@ -3,6 +3,8 @@
 
 int main(int argc, char* argv[])
 {
-  // todo: unit test
+  Solution s;
+  vector<int> nums = {2, 3, 1, 1, 4};
+  assert(s.jump(nums) == 2);
   return 0;
 }
