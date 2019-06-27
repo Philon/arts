@@ -41,3 +41,5 @@
 [40 安装我](./97ThingsEveryProgrammerShouldKnow/40-InstallMe)  
 [41 进程间通信影响应用响应时间](./97ThingsEveryProgrammerShouldKnow/41-InterProcessCommunicationAffectsApplicationResponseTime.md)  
 [42 保持构建的干净](./97ThingsEveryProgrammerShouldKnow/42-KeepTheBuildClean)  
+[43 理解如何使用命令行工具](./97ThingsEveryProgrammerShouldKnow/43-KnowHowToUseCommandLineTools.md)  
+[44 掌握两种以上的编程语言](./97ThingsEveryProgrammerShouldKnow/44-KnowWellMoreThanTwoProgrammingLanguages.md)  
