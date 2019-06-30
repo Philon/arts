@@ -47,3 +47,4 @@
 |043| [Multiply Strings](./043-mutiply_strings)                                     | 92.6% |   medium   |
 |044| [Wildcard Matching](./044-wildcard_matching)                                  | 40.3% |    hard    |
 |045| [Jump Game II](./045-jump_game_ii)                                            | 99.8% |    hard    |
+|046| [Permutations](./045-permutations)                                            | 99.8% |   medium   |

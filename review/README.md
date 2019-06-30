@@ -43,3 +43,4 @@
 [42 保持构建的干净](./97ThingsEveryProgrammerShouldKnow/42-KeepTheBuildClean)  
 [43 理解如何使用命令行工具](./97ThingsEveryProgrammerShouldKnow/43-KnowHowToUseCommandLineTools.md)  
 [44 掌握两种以上的编程语言](./97ThingsEveryProgrammerShouldKnow/44-KnowWellMoreThanTwoProgrammingLanguages.md)  
+[45 了解你的IDE](./97ThingsEveryProgrammerShouldKnow/45-KnowYourIDE.md)  
