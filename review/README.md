@@ -1,1 +1,1 @@
-[46 了解你的瓶颈](./97ThingsEveryProgrammerShouldKnow/46-KnowYourLimits.md)  
+[46 了解自己的局限](./97ThingsEveryProgrammerShouldKnow/46-KnowYourLimits.md)  
