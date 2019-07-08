@@ -48,3 +48,5 @@
 |044| [Wildcard Matching](./044-wildcard_matching)                                  | 40.3% |    hard    |
 |045| [Jump Game II](./045-jump_game_ii)                                            | 99.8% |    hard    |
 |046| [Permutations](./045-permutations)                                            | 99.8% |   medium   |
+|053| [Maximum Subarray](./053-maximum_subarray)                                    |  82%  |    easy    |
+|058| [Length of Last Word](./058-length_of_last_word)                              | 100%  |    easy    |
