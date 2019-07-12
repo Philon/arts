@@ -1,1 +1,1 @@
-[47 知道你的下次提交]
+[47 知道你的下次提交](./97ThingsEveryProgrammerShouldKnow/46-KnowYourNextCommit.md)  
