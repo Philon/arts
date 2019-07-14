@@ -50,3 +50,5 @@
 |046| [Permutations](./045-permutations)                                            | 99.8% |   medium   |
 |053| [Maximum Subarray](./053-maximum_subarray)                                    |  82%  |    easy    |
 |058| [Length of Last Word](./058-length_of_last_word)                              | 100%  |    easy    |
+|066| [Plus One](./066-plus_one)                                                    | 100%  |    easy    |
+|067| [Add Binary](./067-add_binary)                                                | 87.3% |    easy    |
