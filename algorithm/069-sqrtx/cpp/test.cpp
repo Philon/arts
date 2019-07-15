@@ -3,6 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-  // todo: unit test
+  Solution s;
+  assert(s.mySqrt(2147395599) == 2);
   return 0;
 }
