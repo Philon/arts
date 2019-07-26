@@ -46,3 +46,4 @@
 [45 了解你的IDE](./97ThingsEveryProgrammerShouldKnow/45-KnowYourIDE.md)  
 [46 了解你的限制](./97ThingsEveryProgrammerShouldKnow/46-KnowYourLimits.md)  
 [47 知道你的下次提交](./97ThingsEveryProgrammerShouldKnow/47-KnowYourNextCommit.md)  
+[48 大型互联数据属于数据库](./97ThingsEveryProgrammerShouldKnow/48-LargeInterconnectedDataToBelongsADatabase.md)  

@@ -52,3 +52,4 @@
 |058| [Length of Last Word](./058-length_of_last_word)                              | 100%  |    easy    |
 |066| [Plus One](./066-plus_one)                                                    | 100%  |    easy    |
 |067| [Add Binary](./067-add_binary)                                                | 87.3% |    easy    |
+|069| [sqrt(x)](./067-sqrtx)                                                        | 100%  |    easy    |
