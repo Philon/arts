@@ -47,3 +47,5 @@
 [46 了解你的限制](./97ThingsEveryProgrammerShouldKnow/46-KnowYourLimits.md)  
 [47 知道你的下次提交](./97ThingsEveryProgrammerShouldKnow/47-KnowYourNextCommit.md)  
 [48 大型互联数据属于数据库](./97ThingsEveryProgrammerShouldKnow/48-LargeInterconnectedDataToBelongsADatabase.md)  
+[49 学外语](./97ThingsEveryProgrammerShouldKnow/49-LearnForeignLanguage.md)  
+[50 学会估算](./97ThingsEveryProgrammerShouldKnow/50-LearnToEstimate.md)  
