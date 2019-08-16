@@ -3,6 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-  // todo: unit test
+  Solution s;
+  assert(s.climbStairs(4) == 5);
   return 0;
 }
