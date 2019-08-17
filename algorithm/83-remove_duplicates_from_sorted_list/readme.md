@@ -1,1 +1,0 @@
-# [从已排序数组中删除副本](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
