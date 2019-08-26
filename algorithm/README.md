@@ -53,3 +53,5 @@
 |066| [Plus One](./066-plus_one)                                                    | 100%  |    easy    |
 |067| [Add Binary](./067-add_binary)                                                | 87.3% |    easy    |
 |069| [sqrt(x)](./067-sqrtx)                                                        | 100%  |    easy    |
+|070| [Climbing Stairs](./070-climbing_stairs)                                      | 100%  |    easy    |
+|083| [Remove Duplicates from Sorted List](./083-remove_duplicates_from_sorted_list)| 100%  |    easy    |

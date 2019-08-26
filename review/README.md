@@ -49,3 +49,4 @@
 [48 大型互联数据属于数据库](./97ThingsEveryProgrammerShouldKnow/48-LargeInterconnectedDataToBelongsADatabase.md)  
 [49 学外语](./97ThingsEveryProgrammerShouldKnow/49-LearnForeignLanguage.md)  
 [50 学会估算](./97ThingsEveryProgrammerShouldKnow/50-LearnToEstimate.md)  
+[51 学会说：“Hello, World”](./97ThingsEveryProgrammerShouldKnow/51-LearnToSayHelloWorld.md)  

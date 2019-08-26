@@ -2,6 +2,7 @@
 [00 Hello World](./RPiDriverInAction/00-hello)  
 [01 GPIO驱动之LED](./RPiDriverInAction/01-gpio_led)  
 [02 GPIO驱动之按键中断](./RPiDriverInAction/02-gpio_key)  
+[03 设备IO访问技术](./RPiDriverInAction/03-device_io)  
 
 ## 嵌入式Linux驱动学习
 [一 环境准备](./ArmLinuxDriverLearning/chapter1)  
