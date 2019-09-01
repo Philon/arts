@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 树莓派驱动开发实战
 [00 Hello World](./RPiDriverInAction/00-hello)  
 [01 GPIO驱动之LED](./RPiDriverInAction/01-gpio_led)  
@@ -51,3 +52,6 @@
 
 ## 其他
 [正则表达式学习总结 更新中...](./common/RegularExpression.md)
+=======
+[04 蜂鸣器](./RPiDriverInAction/04-buzzer/)  
+>>>>>>> arts37
