@@ -1,0 +1,1 @@
+[53 链接器并不是一个神奇的程序](./97ThingsEveryProgrammerShouldKnow/53-TheLinkerIsNotAMagicalProgram.md)  
