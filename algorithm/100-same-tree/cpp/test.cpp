@@ -5,6 +5,7 @@
 using namespace std;
 
 struct TreeNode* tree(vector<int> v) {
+  // 创建二叉树太繁琐，懒得写了😂
   return NULL;
 }
 
