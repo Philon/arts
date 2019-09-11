@@ -11,14 +11,15 @@ struct TreeNode {
 class Solution {
 public:
  bool isSymmetric(TreeNode* root) {
-  //  if (root && root->left && root->right)
-   return true;
+   return root ? isSymetric(root->left, root->right) : true;
  }
 
 private:
   bool isSymetric(TreeNode* left, TreeNode* right) {
-    if (left && right) {
+    if (left && right && left->val == right->val) {
       return isSymetric(left->left, right->right) && isSymetric(left->right, right->left);
+    } else {
+      return !left && !right;
     }
   }
 };
