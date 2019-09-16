@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 ## 树莓派驱动开发实战
 [00 Hello World](./RPiDriverInAction/00-hello)  
 [01 GPIO驱动之LED](./RPiDriverInAction/01-gpio_led)  
 [02 GPIO驱动之按键中断](./RPiDriverInAction/02-gpio_key)  
 [03 设备IO访问技术](./RPiDriverInAction/03-device_io)  
+[04 PWM呼吸灯](./RPiDriverInAction/04-pwm_led/)
 
 ## 嵌入式Linux驱动学习
 [一 环境准备](./ArmLinuxDriverLearning/chapter1)  
@@ -52,6 +52,3 @@
 
 ## 其他
 [正则表达式学习总结 更新中...](./common/RegularExpression.md)
-=======
-[04 蜂鸣器](./RPiDriverInAction/04-buzzer/)  
->>>>>>> arts37

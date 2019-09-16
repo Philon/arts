@@ -51,3 +51,4 @@
 [50 学会估算](./97ThingsEveryProgrammerShouldKnow/50-LearnToEstimate.md)  
 [51 学会说：“Hello, World”](./97ThingsEveryProgrammerShouldKnow/51-LearnToSayHelloWorld.md)  
 [52 让你的项目自己说话](./97ThingsEveryProgrammerShouldKnow/52-LetYourProjectSpeakForItself.md)  
+[53 链接器并不是一个神奇的程序](./97ThingsEveryProgrammerShouldKnow/53-TheLinkerIsNotAMagicalProgram.md)  

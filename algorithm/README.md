@@ -56,3 +56,4 @@
 |070| [Climbing Stairs](./070-climbing_stairs)                                      | 100%  |    easy    |
 |083| [Remove Duplicates from Sorted List](./083-remove_duplicates_from_sorted_list)| 100%  |    easy    |
 |088| [Merge Stored Array](./088-merge_stored_array)                                | 100%  |    easy    |
+|100| [Same Tree](./100-same_tree)                                                  | 100%  |    easy    |
