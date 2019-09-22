@@ -52,3 +52,5 @@
 [51 学会说：“Hello, World”](./97ThingsEveryProgrammerShouldKnow/51-LearnToSayHelloWorld.md)  
 [52 让你的项目自己说话](./97ThingsEveryProgrammerShouldKnow/52-LetYourProjectSpeakForItself.md)  
 [53 链接器并不是一个神奇的程序](./97ThingsEveryProgrammerShouldKnow/53-TheLinkerIsNotAMagicalProgram.md)  
+[54 持久的临时方案](./97ThingsEveryProgrammerShouldKnow/54-TheLongevityOfInterimSolutions.md)  
+[55 让接口易于正确使用并难以出错](./97ThingsEveryProgrammerShouldKnow/55-MakeInterfaceEasyToUseCorrectlyAndHardToUseIncorrectly.md)  

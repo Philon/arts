@@ -57,3 +57,6 @@
 |083| [Remove Duplicates from Sorted List](./083-remove_duplicates_from_sorted_list)| 100%  |    easy    |
 |088| [Merge Stored Array](./088-merge_stored_array)                                | 100%  |    easy    |
 |100| [Same Tree](./100-same_tree)                                                  | 100%  |    easy    |
+|101| [Symmertric Tree](./101-symmertric_tree)                                      | 100%  |    easy    |
+|104| [Maximux Depth of Binary Tree](./104-maximum_depth_of_binary_tree)            | 100%  |    easy    |
+|107| [Binary Tree Level Order Traversal II](./107-binary_tree_level_order_traversal_ii)| 100%  |    easy    |
