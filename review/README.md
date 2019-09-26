@@ -1,1 +1,1 @@
-[56 让不可见更可见](97ThingsEveryProgrammerShouldKnow/56-MakeTheInvisibleMoreVisible.md)  
+[56 让不可见更可见](./97ThingsEveryProgrammerShouldKnow/56-MakeTheInvisibleMoreVisible.md)  
