@@ -1,12 +1,9 @@
-# [转化有序数组为二叉搜索树]https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
+# [转化有序数组为二叉搜索树](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
 
 给一个升序元素组成的数组，将其转换为高度平衡的二叉树。
 
 所谓高度平衡二叉树是指：两个子树的每个节点深度相差不超过1。
 
-Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
-
-For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 ```
 Example:
 给一个有序数组: [-10,-3,0,5,9],
