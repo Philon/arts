@@ -1,0 +1,1 @@
+[57 消息传递可提高并行系统的可伸缩性](./97ThingsEveryProgrammerShouldKnow/57-MessagePassingLeadsToBetterScalabilityInParallelSystems.md)
