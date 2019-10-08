@@ -5,6 +5,7 @@
 [03 设备IO访问技术](./RPiDriverInAction/03-device_io)  
 [04 PWM呼吸灯](./RPiDriverInAction/04-pwm_led/)  
 [05 PWM音乐盒](./RPiDriverInAction/04-pwm_musicbox/)  
+[06 红外遥控](./RPiDriverInAction/ir_recv/)  
 
 ## 嵌入式Linux驱动学习
 [一 环境准备](./ArmLinuxDriverLearning/chapter1)  
