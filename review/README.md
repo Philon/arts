@@ -56,3 +56,4 @@
 [55 让接口易于正确使用并难以出错](./97ThingsEveryProgrammerShouldKnow/55-MakeInterfaceEasyToUseCorrectlyAndHardToUseIncorrectly.md)  
 [56 让不可见更可见](./97ThingsEveryProgrammerShouldKnow/56-MakeTheInvisibleMoreVisible.md)  
 [57 消息传递可提高并行系统的可伸缩性](./97ThingsEveryProgrammerShouldKnow/57-MessagePassingLeadsToBetterScalabilityInParallelSystems.md)  
+[58 写给未来的消息](./97ThingsEveryProgrammerShouldKnow/58-AMessageToTheFuture.md)  

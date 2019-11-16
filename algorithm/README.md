@@ -63,3 +63,6 @@
 |108| [Convert Sorted Array to Binary Search Tree](./108-convert_sorted_array_to_binary_search_tree)| 86%  |    easy    |
 |110| [Balanced Binary Tree](./110-balanced_binary_tree)                            |  55%  |    easy    |
 |111| [Minimum Depth of Binary Tree](./111-minimum_depth_of_binary_tree)            |  100% |    easy    |
+|112| [Path Sum](./112-path_sum)                                                    |  74%  |    easy    |
+|118| [Pascals Triangle](./118-pascals_triangle)                                    | 82.8% |    easy    |
+|119| [PAscals Triangle II](./119-pascals_triangle_ii)                              |  76%  |    easy    |
